@@ -1,0 +1,27 @@
+<div class="mht-container-40">
+    <div class="mht-grid" *ngIf="requests && requests.length > 0">
+        <ng-container [ngSwitch]="type">
+            <ng-container *ngSwitchCase="'customer'">
+                <customer-quotation (Accept)="handleAccept($event)"
+                                    (Reject)="handleReject($event)" [requestInfo]="quotation"
+                                    *ngFor="let quotation of requests"></customer-quotation>
+            </ng-container>
+            <ng-container *ngSwitchCase="'agent'">
+                <agent-quotation  [requestInfo]="quotation"
+                                 *ngFor="let quotation of requests"></agent-quotation>
+            </ng-container>
+        </ng-container>
+    </div>
+    <mat-paginator *ngIf="requests && requests.length > 0" #paginator
+                   class="demo-paginator"
+                   (page)="handlePageEvent($event)"
+                   [length]="totalLength"
+                   [pageSize]="pageSize"
+                   [showFirstLastButtons]="showFirstLastButtons"
+                   [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                   [pageIndex]="currentPage"
+                   aria-label="Select page">
+    </mat-paginator>
+    <general-empty  *ngIf="requests && requests.length == 0"></general-empty>
+</div>
+

@@ -1,0 +1,16 @@
+<div class="mht-container-40">
+    <div class="mht-grid" *ngIf="requests && requests.length > 0">
+        <request-task (Update)="handleUpdate()" [task]="request" *ngFor="let request of requests"></request-task>
+    </div>
+    <mat-paginator *ngIf="requests && requests.length > 0" #paginator
+                   class="demo-paginator"
+                   (page)="handlePageEvent($event)"
+                   [length]="totalLength"
+                   [pageSize]="pageSize"
+                   [showFirstLastButtons]="showFirstLastButtons"
+                   [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                   [pageIndex]="currentPage"
+                   aria-label="Select page">
+    </mat-paginator>
+    <general-empty *ngIf="requests && requests.length == 0"></general-empty>
+</div>

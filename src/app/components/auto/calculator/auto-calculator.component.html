@@ -1,0 +1,138 @@
+<div class="main-container">
+    <!-- First Page -->
+    <div [hidden]="currentPage !== 1" [@slideInOut]="currentPage !== 1 ? 'in' : 'out'" class="page">
+        <form [formGroup]="page1">
+            <div class="flex-container">
+                <div class="flex-row">
+                    <div class="flex-col-3">
+                        <mat-form-field>
+                            <mat-label>First Name</mat-label>
+                            <input matInput placeholder="First Name" formControlName="firstName">
+                        </mat-form-field>
+                    </div>
+                    <div class="flex-col-3">
+                        <mat-form-field>
+                            <mat-label>Middle Name</mat-label>
+                            <input matInput placeholder="Middle Name" formControlName="middleName">
+                        </mat-form-field>
+                    </div>
+                    <div class="flex-col-3">
+                        <mat-form-field>
+                            <mat-label>Last Name</mat-label>
+                            <input matInput placeholder="Last Name" formControlName="lastName">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="flex-col-2">
+                        <mat-form-field>
+                            <mat-label>Phone Number</mat-label>
+                            <input matInput placeholder="Phone Number" formControlName="phoneNumber">
+                            <mat-icon matSuffix>call</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex-col-2">
+                        <mat-form-field>
+                            <mat-label>Email Address</mat-label>
+                            <input matInput placeholder="Email Address" formControlName="emailAddress">
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Second Page -->
+    <div [hidden]="currentPage !== 2" [@slideInOut]="currentPage !== 2 ? 'in' : 'out'" class="page">
+        <form [formGroup]="page2" (ngSubmit)="submitForm()">
+            <div class="flex-container">
+                <div class="flex-row">
+                    <div class="flex-col-2">
+                        <mat-form-field>
+                            <mat-label>Policy Type</mat-label>
+                            <mat-select formControlName="policyType">
+                                <mat-option value="Third Party">Third Party</mat-option>
+                                <mat-option value="Comprehensive">Comprehensive</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex-col-2">
+                        <mat-form-field>
+                            <mat-label>Country</mat-label>
+                            <mat-select formControlName="country">
+                                <mat-option *ngFor="let country of countries"
+                                            [value]="country">{{ country }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="flex-col-2">
+                        <mat-form-field>
+                            <mat-label>Car Make</mat-label>
+                            <mat-select formControlName="carBrand" (selectionChange)="loadModels($event)">
+                                <mat-option *ngFor="let carMake of carMakes"
+                                            [value]="carMake">{{ carMake }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex-col-2">
+                        <div class="loadingSpinner" *ngIf="loadingCarModels">
+                            <mat-spinner></mat-spinner>
+                        </div>
+                        <mat-form-field *ngIf="!loadingCarModels">
+                            <mat-label>Car Model</mat-label>
+                            <mat-select formControlName="carModel">
+                                <mat-option *ngFor="let carModel of carModels"
+                                            [value]="carModel">{{ carModel }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="flex-row">
+                    <div class="flex-col-2">
+                        <mat-form-field>
+                            <input matInput type="number" placeholder="Manufacturing Year"
+                                   formControlName="manufacturingYear">
+                            <mat-icon matSuffix>event</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="flex-col-2">
+                        <mat-form-field>
+                            <input matInput type="number" placeholder="Car Value" formControlName="carValue">
+                            <mat-icon matSuffix>price_change</mat-icon>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Third Page -->
+    <div [hidden]="currentPage !== 3" [@slideInOut]="currentPage !== 3 ? 'in' : 'out'" class="page">
+       <div class="result">
+           <div class="Quotation">
+               <h4 class="title">Your Quotation Value is</h4>
+               <strong class="price">
+                   {{Quotation}}
+               </strong>
+               <p class="remarks">
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus leo eu purus porttitor viverra. Vivamus condimentum dui commodo egestas maximus. Integer rutrum nulla erat, id pretium justo porta eu. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+               </p>
+           </div>
+       </div>
+    </div>
+    <mat-toolbar color="primary">
+        <div>
+            <button [hidden]="currentPage === 1" (click)="previousPage()" mat-icon-button color="secondary">
+                <mat-icon>arrow_back_ios</mat-icon>
+            </button>
+        </div>
+
+        <button [hidden]="currentPage !== 3" (click)="submitForm()" mat-raised-button color="accent">Request A Call Back</button>
+        <button (click)="nextPage()" mat-icon-button color="secondary">
+            <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+    </mat-toolbar>
+</div>
+
+

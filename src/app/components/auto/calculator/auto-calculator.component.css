@@ -1,0 +1,103 @@
+.main-container
+{
+    overflow: hidden;
+}
+
+.page
+{
+    transform: translateX(-100%);
+    transition: transform 500ms ease-in-out;
+}
+
+.flex-container {
+    display: grid;
+    align-items: stretch;
+    background-color: #f1f1f1;
+    flex-wrap: wrap;
+}
+.flex-row
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-row > div
+{
+    flex-direction: column;
+    display: flex;
+}
+.flex-col-3
+{
+    width: calc(100% / 3);
+    padding: 0.5rem;
+}
+.flex-col-2
+{
+    width: calc(100% / 2);
+    padding: 0.5rem;
+}
+::ng-deep mat-form-field
+{
+    width: 100%;
+}
+
+::ng-deep .mat-icon
+{
+    height: auto!important;
+    width: auto!important;
+}
+.loadingSpinner
+{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+::ng-deep .mat-mdc-progress-spinner
+{
+    height: 25px!important;
+    width: 25px!important;
+    margin: auto!important;
+}
+
+.Quotation
+{
+    display: flex;
+    margin: auto;
+    padding: 2rem;
+    background-color: var(--secondary) !important;
+    color:var(--light) !important;
+    display: grid;
+    text-transform: uppercase;
+    color: var(--light)!important;
+}
+.Quotation .title
+{
+    color:var(--light) !important;
+    font-weight: 900!important;
+}
+.Quotation .price
+{
+    text-align: center;
+    font-size: 2.0rem;
+    display: flex;
+    justify-content: center;
+}
+.Quotation .price::after
+{
+    content: '$';
+    margin-left: 10px;
+}
+.Quotation .remarks
+{
+    font-size: 0.5rem;
+    margin-top: 3rem;
+    text-transform: initial;
+    text-align: justify;
+}
+
+::ng-deep .mat-toolbar
+{
+    display: flex!important;
+    justify-content: space-between!important;
+}
+

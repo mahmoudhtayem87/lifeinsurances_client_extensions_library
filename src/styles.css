@@ -1,1 +1,202 @@
-/* You can add global styles to this file, and also import other style files */
+.mht-grid {
+    display: grid;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+.mht-row
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.mht-col
+{
+    flex-direction: column;
+    display: flex;
+    padding: 0.5rem;
+}
+.mht-col-1
+{
+    width: calc(100% / 12 * 1);
+
+}
+.mht-col-2
+{
+    width: calc(100% / 12 * 2);
+}
+.mht-col-3
+{
+    width: calc(100% / 12 * 3);
+}
+.mht-col-4
+{
+    width: calc(100% / 12 * 4);
+}
+.mht-col-5
+{
+    width: calc(100% / 12 * 5);
+}
+.mht-col-6
+{
+    width: calc(100% / 12 * 6);
+}
+.mht-col-7
+{
+    width: calc(100% / 12 * 7);
+}
+.mht-col-8
+{
+    width: calc(100% / 12 * 8);
+}
+.mht-col-9
+{
+    width: calc(100% / 12 * 9);
+}
+.mht-col-10
+{
+    width: calc(100% / 12 * 10);
+}
+.mht-col-11
+{
+    width: calc(100% / 12 * 11);
+}
+.mht-col-12
+{
+    width: calc(100% / 12 * 12);
+}
+
+.mht-center-children > *
+{
+    margin: auto;
+}
+.mht-border-primary
+{
+    border-color: var(--primary) !important;
+}
+.mht-border-secondary
+{
+    border-color: var(--secondary)!important;
+}
+.mht-border-light
+{
+    border-color: var(--light)!important;
+}
+.mht-border-success
+{
+    border-color: var(--success)!important;
+}
+.mht-border-danger
+{
+    border-color: var(--danger)!important;
+}
+.hover:hover
+{
+    background-color: var(--light);
+    cursor: pointer;
+}
+.mht-mry-1
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.mht-border
+{
+    border:solid;
+}
+.mht-border-bottom
+{
+    border-bottom:solid;
+}
+.mht-border-top
+{
+    border-top:solid;
+}
+.mht-border-left
+{
+    border-left:solid;
+}
+.mht-border-right
+{
+    border-right:solid;
+}
+
+::ng-deep .mat-toolbar
+{
+    display: flex!important;
+    justify-content: space-between!important;
+}
+
+.mht-toolbar
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.mht-container-40
+{
+    min-height: 40vh;
+}
+.mht-col.complex
+{
+    display: inline-flex;
+    flex-direction: row;
+}
+.mht-col.complex > span
+{
+    display: inline-flex;
+    flex-direction: column;
+    margin-right: 5px;
+}
+.p-0
+{
+    padding: 0!important;
+}
+.end
+{
+    justify-content: end;
+}
+.start
+{
+    justify-content: start;
+}
+.center
+{
+    justify-content: center;
+}
+
+::ng-deep .mat-mdc-paginator-container
+{
+    justify-content: center!important;
+}
+::ng-deep .mat-mdc-paginator-page-size-label
+{
+    min-width: 100px!important;
+}
+::ng-deep .mat-success *
+{
+    color:var(--success) !important;
+}
+::ng-deep .mat-danger *
+{
+    color:var(--danger) !important;
+}
+::ng-deep .mat-primary *
+{
+    color:var(--primary) !important
+}
+.mht-capitalize
+{
+    text-transform: capitalize;
+}
+.pending
+{
+    color:var(--primary)
+}
+.accepted
+{
+    color:var(--success)
+}
+.rejected
+{
+    color:var(--danger)
+}

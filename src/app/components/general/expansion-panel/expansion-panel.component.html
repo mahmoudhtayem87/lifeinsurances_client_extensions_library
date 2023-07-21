@@ -1,0 +1,17 @@
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <slot name="title">panel title</slot>
+            </mat-panel-title>
+            <mat-panel-description>
+
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+            <slot name="description">
+                description
+            </slot>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

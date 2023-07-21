@@ -1,0 +1,51 @@
+<div class="mht-container-40">
+    <div class="mht-grid" *ngIf="customers && customers.length > 0">
+        <div class="mht-row hover mht-mry-1 mht-border mht-border-primary"
+             *ngFor="let customer of customers">
+            <div class="mht-col mht-col-10">
+                <div class="mht-row">
+                    <div class="mht-col mht-col-12 complex">
+                         <span>
+                             <mat-icon>portrait</mat-icon>
+                         </span>
+                        <span>
+                            {{customer["firstName"]}} {{customer["middleName"]}} {{customer["lastName"]}}
+                        </span>
+                    </div>
+                    <div class="mht-col mht-col-12 p-0">
+                        <div class="mht-row mht-border-top mht-border-primary">
+                            <div class="mht-col mht-col-4 complex start">
+                                <span>
+                                    <mat-icon>email</mat-icon>
+                                </span>
+                                <span>
+                                  {{customer["email"]}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mht-col mht-col-2 mht-center-children mht-border-left mht-border-secondary">
+                <div class="mht-toolbar">
+                    <button title="Assign Request to Me"  mat-icon-button
+                            color="secondary">
+                        <mat-icon>assignment_ind</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <mat-paginator *ngIf="customers && customers.length > 0" #paginator
+                   class="demo-paginator"
+                   (page)="handlePageEvent($event)"
+                   [length]="totalLength"
+                   [pageSize]="pageSize"
+                   [showFirstLastButtons]="showFirstLastButtons"
+                   [pageSizeOptions]="showPageSizeOptions ? pageSizeOptions : []"
+                   [pageIndex]="currentPage"
+                   aria-label="Select page">
+    </mat-paginator>
+    <general-empty  *ngIf="customers && customers.length == 0"></general-empty>
+</div>
+

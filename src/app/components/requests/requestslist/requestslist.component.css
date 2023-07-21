@@ -1,0 +1,8 @@
+::ng-deep .mat-mdc-paginator-container
+{
+    justify-content: center!important;
+}
+::ng-deep .mat-mdc-paginator-page-size-label
+{
+    min-width: 100px!important;
+}

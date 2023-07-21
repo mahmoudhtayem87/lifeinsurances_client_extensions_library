@@ -1,0 +1,5 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+:host ::ng-deep .mat-expansion-panel-header-description
+{
+    justify-content: end!important;
+}

@@ -1,0 +1,108 @@
+<div class="mht-row hover mht-mry-1 mht-border mht-border-primary" *ngIf="requestInfo">
+    <div class="mht-col mht-col-11">
+        <div class="mht-row">
+            <div class="mht-col mht-col-12 p-0">
+                <div class="mht-row">
+                    <div class="mht-col mht-col-4 complex start">
+                                <span>
+                                    <mat-icon>markunread</mat-icon>
+                                </span>
+                        <span>
+                                  {{requestInfo["emailAddress"]}}
+                                </span>
+                    </div>
+                    <div class="mht-col mht-col-4 complex start">
+                            <span>
+                             <mat-icon>portrait</mat-icon>
+                         </span>
+                        <span *ngIf="requestInfo">
+                           {{requestInfo["firstName"]}} {{requestInfo["middleName"]}} {{requestInfo["lastName"]}}
+                        </span>
+                    </div>
+                    <div class="mht-col mht-col-4 complex end">
+
+                        <span>
+                                 {{requestInfo["phoneNumber"]}}
+                                </span>
+                        <span>
+                                    <mat-icon>phone_iphone</mat-icon>
+                                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="mht-col mht-col-12 p-0" *ngIf="requestInfo">
+                <div class="mht-row mht-border-top mht-border-primary">
+                    <div class="mht-col mht-col-4 complex start">
+                                <span>
+                                    <mat-icon>policy</mat-icon>
+                                </span>
+                        <span>
+                                  {{requestInfo["policyType"]}}
+                                </span>
+                    </div>
+                    <div class="mht-col mht-col-4 complex start">
+                                <span>
+                                    <mat-icon>price_change</mat-icon>
+                                </span>
+                        <span>
+                                  {{requestInfo["quotationTotalValue"]}}
+                                </span>
+                    </div>
+                    <div class="mht-col mht-col-4 complex end">
+                        <span>
+                                 {{requestInfo["dateCreated"]  | date:'yyyy-MM-dd'}}
+                                </span>
+                        <span>
+                                    <mat-icon>event</mat-icon>
+                                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="mht-col mht-col-12 p-0" *ngIf="requestInfo">
+                <div class="mht-row mht-border-top mht-border-primary">
+                    <div class="mht-col mht-col-4 complex start">
+                                <span>
+                                    <mat-icon>drive_eta</mat-icon>
+                                </span>
+                        <span>
+                                  {{requestInfo["carBrand"]}}
+                                </span>
+                    </div>
+                    <div class="mht-col mht-col-4 complex start">
+                                <span>
+                                    <mat-icon>drive_eta</mat-icon>
+                                </span>
+                        <span>
+                                  {{requestInfo["carModel"]}}
+                                </span>
+                    </div>
+                    <div class="mht-col mht-col-4 complex end">
+                        <span>
+                                 {{requestInfo["carValue"]}}
+                                </span>
+                        <span>
+                                    <mat-icon>price_change</mat-icon>
+                                </span>
+                    </div>
+                </div>
+            </div>
+            <div class="mht-col mht-col-12 p-0">
+                <div class="mht-row mht-border-top mht-border-primary">
+                    <div class="mht-col mht-col-12 complex start">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Remarks</mat-label>
+                            <textarea [(ngModel)]="remarks"  matInput placeholder="Ex: Remarks about customer call"></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mht-col mht-col-1 mht-center-children mht-border-left mht-border-secondary">
+        <div class="mht-toolbar">
+            <button [hidden]="remarks.length <= 0" (click)="resolve()" title="Mark Task As Resolved" mat-icon-button>
+                <mat-icon color="primary">task_alt</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>

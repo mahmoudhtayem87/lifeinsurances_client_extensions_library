@@ -33,6 +33,7 @@ import { ExpansionPanelComponent } from './components/general/expansion-panel/ex
 import {MatExpansionModule} from "@angular/material/expansion";
 import { CustomersListComponent } from './components/customers/customers-list/customers-list.component';
 import { EmptyComponent } from './components/general/empty/empty.component';
+import { TotalCommentsComponent } from './components/general/comments/total-comments/total-comments.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -50,7 +51,8 @@ import { EmptyComponent } from './components/general/empty/empty.component';
         QuotationsChartOverviewComponent,
         ExpansionPanelComponent,
         CustomersListComponent,
-        EmptyComponent
+        EmptyComponent,
+        TotalCommentsComponent
     ],
     imports: [
         BrowserModule,
@@ -130,6 +132,11 @@ export class AppModule {
             injector: this.injector
         });
         customElements.define("customers-list", CustomersList);
+
+        const TotalComments = createCustomElement(TotalCommentsComponent, {
+            injector: this.injector
+        });
+        customElements.define("article-total-comments", TotalComments);
     }
 
 }

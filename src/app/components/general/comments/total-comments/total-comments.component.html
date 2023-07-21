@@ -1,0 +1,16 @@
+<div class="mht-grid">
+    <div class="mht-row">
+        <div class="mht-col mht-col-12 start complex" *ngIf="!isLoading">
+            <mat-icon>comment</mat-icon>
+            <span style="margin-left: 5px!important;">
+                    {{totalCount}}
+                </span>
+        </div>
+        <div *ngIf="isLoading" class="mht-col mht-col-12 start complex">
+                <span>
+                    <mat-spinner></mat-spinner>
+                </span>
+        </div>
+    </div>
+</div>
+

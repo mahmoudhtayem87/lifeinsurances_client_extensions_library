@@ -1,0 +1,6 @@
+::ng-deep .mat-mdc-progress-spinner
+{
+    height: 1rem!important;
+    width: 1rem!important;
+    margin: auto!important;
+}

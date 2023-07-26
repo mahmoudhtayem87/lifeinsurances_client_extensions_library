@@ -34,6 +34,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
 import { CustomersListComponent } from './components/customers/customers-list/customers-list.component';
 import { EmptyComponent } from './components/general/empty/empty.component';
 import { TotalCommentsComponent } from './components/general/comments/total-comments/total-comments.component';
+import { ExpansionPanelDynamicComponent } from './components/general/expansion-panel-dynamic/expansion-panel-dynamic.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -52,7 +53,8 @@ import { TotalCommentsComponent } from './components/general/comments/total-comm
         ExpansionPanelComponent,
         CustomersListComponent,
         EmptyComponent,
-        TotalCommentsComponent
+        TotalCommentsComponent,
+        ExpansionPanelDynamicComponent
     ],
     imports: [
         BrowserModule,
@@ -137,6 +139,11 @@ export class AppModule {
             injector: this.injector
         });
         customElements.define("article-total-comments", TotalComments);
+
+        const ExpansionPanelDynamic = createCustomElement(ExpansionPanelDynamicComponent, {
+            injector: this.injector
+        });
+        customElements.define("general-expansion-panel-dynamic", ExpansionPanelDynamic);
     }
 
 }

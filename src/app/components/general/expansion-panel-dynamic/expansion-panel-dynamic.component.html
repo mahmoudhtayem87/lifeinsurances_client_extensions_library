@@ -1,0 +1,17 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let panel of panels ; let x = index" style="margin-bottom: 0.5rem!important;">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <slot name="title_{{x}}">panel title</slot>
+            </mat-panel-title>
+            <mat-panel-description>
+
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div>
+            <slot name="description_{{x}}">
+                description
+            </slot>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

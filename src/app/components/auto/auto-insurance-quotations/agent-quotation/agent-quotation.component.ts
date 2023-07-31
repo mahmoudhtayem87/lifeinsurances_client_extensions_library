@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'agent-quotation',
@@ -8,6 +8,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class AgentQuotationComponent  implements OnInit {
   @Input('requestInfo')
   requestInfo : any;
+  constructor(private cdr:ChangeDetectorRef) {
+  }
   ngOnInit(): void {
+    this.cdr.detectChanges();
   }
 }

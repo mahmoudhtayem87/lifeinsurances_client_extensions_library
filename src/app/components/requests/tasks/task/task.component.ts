@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {autoinsurancequotationrequestsService} from "../../../../services/autoinsurancequotationrequests";
 import {callbacktasksService} from "../../../../services/callbacktasks";
 import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from "@angular/material/snack-bar";
@@ -13,12 +13,13 @@ export class TaskComponent implements OnInit {
   remarks : string = "";
   @Input('task')
   task:any
-  constructor( private _snackBar: MatSnackBar,private requestSrv:autoinsurancequotationrequestsService, private tasksSrv:callbacktasksService) {
+  constructor( private cdr:ChangeDetectorRef,private _snackBar: MatSnackBar,private requestSrv:autoinsurancequotationrequestsService, private tasksSrv:callbacktasksService) {
   }
   requestInfo : any;
   @Output() Update: EventEmitter<void> = new EventEmitter<void>();
 
   ngOnInit(): void {
+    this.cdr.detectChanges();
     this.getRequestInfo();
   }
 

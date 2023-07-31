@@ -31,10 +31,6 @@ export class ListQuotationsComponent  implements OnInit {
   requestFilter = "";
   pageSizeOptions: any = [5,10,15];
   async loadRequests() {
-    /*
-    if (this.type === "customer")
-      this.requestFilter = `creatorId eq ${Liferay.ThemeDisplay.getUserId()}`;
-     */
     this.requests = [];
     let result = (await this.requestsSrv.getAutoInsuranceQuotationsPage(null, null,
         null, null, null, this.requestFilter, this.currentPage+1,this.pageSize));
@@ -45,6 +41,7 @@ export class ListQuotationsComponent  implements OnInit {
     console.log(this.requests);
   }
   ngOnInit(): void {
+    console.log(this.type);
     this.loadRequests();
   }
   showResult(title:string) {

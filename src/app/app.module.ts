@@ -35,6 +35,9 @@ import { CustomersListComponent } from './components/customers/customers-list/cu
 import { EmptyComponent } from './components/general/empty/empty.component';
 import { TotalCommentsComponent } from './components/general/comments/total-comments/total-comments.component';
 import { ExpansionPanelDynamicComponent } from './components/general/expansion-panel-dynamic/expansion-panel-dynamic.component';
+import { ButtonComponent } from './components/general/button/button.component';
+import { RendererComponent } from './components/general/offices/renderer/renderer.component';
+import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 @NgModule({
     declarations: [
         AppComponent,
@@ -54,7 +57,9 @@ import { ExpansionPanelDynamicComponent } from './components/general/expansion-p
         CustomersListComponent,
         EmptyComponent,
         TotalCommentsComponent,
-        ExpansionPanelDynamicComponent
+        ExpansionPanelDynamicComponent,
+        ButtonComponent,
+        RendererComponent
     ],
     imports: [
         BrowserModule,
@@ -74,7 +79,8 @@ import { ExpansionPanelDynamicComponent } from './components/general/expansion-p
         MatPaginatorModule,
         ReactiveFormsModule,
         NgxChartsModule,
-        MatExpansionModule
+        MatExpansionModule,
+        LeafletModule
 
     ],
     providers: [],
@@ -144,6 +150,16 @@ export class AppModule {
             injector: this.injector
         });
         customElements.define("general-expansion-panel-dynamic", ExpansionPanelDynamic);
+
+        const MATButton = createCustomElement(ButtonComponent, {
+            injector: this.injector
+        });
+        customElements.define("general-button", MATButton);
+
+        const OfficesComponent = createCustomElement(RendererComponent, {
+            injector: this.injector
+        });
+        customElements.define("general-offices-map", OfficesComponent);
     }
 
 }

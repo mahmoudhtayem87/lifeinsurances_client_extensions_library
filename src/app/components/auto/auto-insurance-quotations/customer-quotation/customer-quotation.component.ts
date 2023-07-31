@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output,ChangeDetectorRef} from '@angular/core';
 
 @Component({
   selector: 'customer-quotation',
@@ -12,7 +12,10 @@ export class CustomerQuotationComponent implements OnInit {
   @Output() Accept: EventEmitter<void> = new EventEmitter<void>();
   @Output() Reject: EventEmitter<void> = new EventEmitter<void>();
 
+  constructor(private cdr:ChangeDetectorRef) {
+  }
   ngOnInit(): void {
+    this.cdr.detectChanges();
   }
 
   async accept() {

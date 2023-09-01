@@ -36,8 +36,8 @@ import { EmptyComponent } from './components/general/empty/empty.component';
 import { TotalCommentsComponent } from './components/general/comments/total-comments/total-comments.component';
 import { ExpansionPanelDynamicComponent } from './components/general/expansion-panel-dynamic/expansion-panel-dynamic.component';
 import { ButtonComponent } from './components/general/button/button.component';
-import { RendererComponent } from './components/general/offices/renderer/renderer.component';
-import {LeafletModule} from "@asymmetrik/ngx-leaflet";
+//import { RendererComponent } from './components/general/offices/renderer/renderer.component';
+//import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 @NgModule({
     declarations: [
         AppComponent,
@@ -59,7 +59,7 @@ import {LeafletModule} from "@asymmetrik/ngx-leaflet";
         TotalCommentsComponent,
         ExpansionPanelDynamicComponent,
         ButtonComponent,
-        RendererComponent
+        //RendererComponent
     ],
     imports: [
         BrowserModule,
@@ -80,7 +80,7 @@ import {LeafletModule} from "@asymmetrik/ngx-leaflet";
         ReactiveFormsModule,
         NgxChartsModule,
         MatExpansionModule,
-        LeafletModule
+        //LeafletModule
 
     ],
     providers: [],
@@ -156,10 +156,12 @@ export class AppModule {
         });
         customElements.define("general-button", MATButton);
 
+        /*
         const OfficesComponent = createCustomElement(RendererComponent, {
             injector: this.injector
         });
         customElements.define("general-offices-map", OfficesComponent);
+         */
     }
 
 }
